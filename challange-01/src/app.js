@@ -1,3 +1,18 @@
+import { Header } from './header'
+import { Menu } from './menu'
+import { Sidebar } from './sidebar'
+import { ContentArea } from './content-area'
+import { Footer } from './footer'
+import './style.css'
+
 export const App = () => {
-  return <h1>App</h1>
+  return (
+    <div className="grid-container">
+      <Header />
+      <Menu />
+      <Sidebar />
+      <ContentArea />
+      <Footer />
+    </div>
+  )
 }

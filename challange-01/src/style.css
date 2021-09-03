@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.grid-container {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr 1fr 2fr 1fr;
+  grid-template-areas: 
+    "header header"
+    "menu menu"
+    "sidebar content-area"
+    "footer footer"
+  ;
+}
+
+.header {
+  grid-area: header;
+}
+
+.menu {
+  grid-area: menu;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.content-area {
+  grid-area: content-area;
+}
+
+.footer {
+  grid-area: footer;
+}
+
