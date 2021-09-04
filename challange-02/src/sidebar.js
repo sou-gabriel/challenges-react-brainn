@@ -6,6 +6,7 @@ export const Sidebar = ({ posts, setTitle, setContent }) => {
           {posts.map(({ id, title, content }) => {
             return (
               <li key={id}>
+                <span></span>
                 <a
                   href="#"
                   onClick={() => {

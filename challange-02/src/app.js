@@ -29,20 +29,33 @@ const posts = [
         <H2>Argumentos</H2>
         <ol>
           <li>
-            <code>callback</code>: Trata-se de uma função que será executada
-            para cada item do array, onde o valor que ela retorna será
-            adicionado no array gerado pelo <code>map</code>. Esta função pode
-            ser declarada com 3 parâmetros, sendo eles:
+            <strong>
+              <em>callback</em>
+            </strong>
+            : Trata-se de uma função que será executada para cada item do array,
+            onde o valor que ela retorna será adicionado no array gerado pelo{' '}
+            <strong>
+              <em>map</em>
+            </strong>
+            . Esta função pode ser declarada com 3 parâmetros, sendo eles:
             <ol>
               <li>
-                <code>item</code>: Recebe o item atual que está sendo iterado;
+                <strong>
+                  <em>item</em>
+                </strong>
+                : Recebe o item atual que está sendo iterado;
               </li>
               <li>
-                <code>index</code>: Recebe o index do item atual que está sendo
-                iterado;
+                <strong>
+                  <em>index</em>
+                </strong>
+                : Recebe o index do item atual que está sendo iterado;
               </li>
               <li>
-                <code>array</code>: Recebe o array que está sendo iterado.
+                <strong>
+                  <em>array</em>
+                </strong>
+                : Recebe o array que está sendo iterado.
               </li>
             </ol>
           </li>
@@ -73,23 +86,37 @@ const posts = [
         <H2>Argumentos</H2>
         <ol>
           <li>
-            <code>callback</code>: Uma função que será executada para cada item
-            do array. Se o valor retornado por esta função for um valor truthy
-            (qualquer valor que não é falsy) o item atual que está sendo iterado
-            será adicionado no array gerado pelo método, mas se o valor
-            retornado da função é um valor falsy o <code>filter</code> ignora
-            este item e não adiciona ele no novo array. Esta callback pode ser
-            declarada com 3 parâmetros, sendo eles:
+            <strong>
+              <em>callback</em>
+            </strong>
+            : Uma função que será executada para cada item do array. Se o valor
+            retornado por esta função for um valor truthy (qualquer valor que
+            não é falsy) o item atual que está sendo iterado será adicionado no
+            array gerado pelo método, mas se o valor retornado da função é um
+            valor falsy (0, false, '', "", ``, null, undefined) o{' '}
+            <strong>
+              <em>filter</em>
+            </strong>{' '}
+            ignora este item e não adiciona ele no novo array. Esta callback
+            pode ser declarada com 3 parâmetros, sendo eles:
             <ol>
               <li>
-                <code>item</code>: Recebe o item atual que está sendo iterado;
+                <strong>
+                  <em>item</em>
+                </strong>
+                : Recebe o item atual que está sendo iterado;
               </li>
               <li>
-                <code>index</code>: Recebe o index do item atual que está sendo
-                iterado;
+                <strong>
+                  <em>index</em>
+                </strong>
+                : Recebe o index do item atual que está sendo iterado;
               </li>
               <li>
-                <code>array</code>: Recebe o array que está sendo iterado.
+                <strong>
+                  <em>array</em>
+                </strong>
+                : Recebe o array que está sendo iterado.
               </li>
             </ol>
           </li>
@@ -123,43 +150,75 @@ const posts = [
         <H2>Argumentos</H2>
         <ol>
           <li>
-            <code>reducer</code>: Trata-se de uma callback que será executada
-            para cada item do array original. Esta callback pode ser declarada
-            com 4 parâmetros, sao eles:
+            <strong>
+              <em>reducer</em>
+            </strong>
+            : Trata-se de uma callback que será executada para cada item do
+            array original. Esta callback pode ser declarada com 4 parâmetros,
+            sao eles:
             <ol>
               <li>
-                <code>accumulator</code>: Recebe o valor retornado pela função
-                <code>reducer</code> a cada iteração;
+                <strong>
+                  <em>accumulator</em>
+                </strong>
+                : Recebe o valor retornado pela função{' '}
+                <strong>
+                  <em>reducer</em>
+                </strong>{' '}
+                a cada iteração;
               </li>
               <li>
-                <code>item</code>: Recebe o item atual que está sendo iterado;
+                <strong>
+                  <em>item</em>
+                </strong>
+                : Recebe o item atual que está sendo iterado;
               </li>
               <li>
-                <code>index</code>: Recebe o index do item atual que está sendo
-                iterado;
+                <strong>
+                  <em>index</em>
+                </strong>
+                : Recebe o index do item atual que está sendo iterado;
               </li>
               <li>
-                <code>array</code>: Recebe o próprio array que está sendo
-                iterado.
+                <strong>
+                  <em>array</em>
+                </strong>
+                : Recebe o próprio array que está sendo iterado.
               </li>
             </ol>
           </li>
           <li>
-            <code>initialValue</code>: Trata-se do valor inicial que será
-            passado para o parâmetro <code>accumulator</code> logo na primeira
-            iteração. Se este argumento é omitido o parâmetro <code>accumulator</code>
+            <strong>
+              <em>initialValue</em>
+            </strong>
+            : Trata-se do valor inicial que será passado para o parâmetro{' '}
+            <strong>
+              <em>accumulator</em>
+            </strong>{' '}
+            logo na primeira iteração. Se este argumento é omitido o parâmetro{' '}
+            <strong>
+              <em>accumulator</em>
+            </strong>{' '}
             armazenará na primeira iteração o primeiro item do array e o
-            parâmetro <code>item</code> receceberá o segundo item do array.
+            parâmetro{' '}
+            <strong>
+              <em>item</em>
+            </strong>{' '}
+            receceberá o segundo item do array.
           </li>
         </ol>
 
         <H2>Retorno</H2>
         <p>
-          O último valor retornado pela função <code>reducer</code>.
+          O último valor retornado pela função{' '}
+          <strong>
+            <em>reducer</em>
+          </strong>
+          .
         </p>
       </>
-    )
-  }
+    ),
+  },
 ]
 
 export const App = () => {

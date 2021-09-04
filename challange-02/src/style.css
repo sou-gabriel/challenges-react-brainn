@@ -17,6 +17,8 @@ html, body, #root {
 
 body {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background-color: #000;
+  color: #fff;
 }
 
 .grid-container {
@@ -39,6 +41,24 @@ body {
   align-items: center;
 }
 
+.header h1 {
+  position: relative;
+}
+
+.header h1:after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 10px;
+  border-radius: 2px;
+  background: #f36;
+  position: absolute;
+  bottom: -13px;
+  left: 0%;
+  z-index: -1;
+  animation: appearOfLeft 500ms ease-out;
+}
+
 .header div {
   text-align: center;
 }
@@ -48,34 +68,82 @@ body {
 }
 
 .sidebar {
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   grid-area: sidebar;
 }
 
-.sidebar a {
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  max-width: fit-content;
+  margin-bottom: 15px;
+  padding: 5px;
+  color: #000;
+  position: relative;
+}
+
+.sidebar li span {
   display: block;
+  width: 100%;
+  height: 20px;
+  position: absolute;
+  z-index: -1;
+  border-radius: 0 2px 2px;
+}
+
+.sidebar li:hover span {
+  animation: 200ms moveToRight forwards;
+}
+
+.sidebar li:hover a {
   color: #000;
 }
 
-.sidebar a + a {
-  margin-top: 10px;
+.sidebar a {
+  font-size: 18px;
+  font-weight: bolder;
+  color: #fff;
 }
 
 .content-area {
-  padding: 10px 50px;
+  height: 500px;
+  padding: 20px 50px;
+  border-radius: 5px 0 0 5px;
+  background-color: #fff;
+  color: #000;
+  background: linear-gradient(0deg,rgba(255, 255, 255, 0.61),#f9f9f9);
   grid-area: content-area;
 }
 
-.content-area ul {
-  list-style-position: inside;
+.content-area h1 {
+  text-align: center;
 }
 
-.content-area h3 {
-  margin-top: 20px;
+.content-area h2 {
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-size: 20px;
 }
 
 .content-area p {
-  margin: 5px 0;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.content-area ul, .content-area ol {
+  list-style-position: inside;
+}
+
+.content-area li {
+  margin-bottom: 5px;
+}
+
+.content-area li ol {
+  padding-left: 15px;
 }
 
 .content-area button {
@@ -100,4 +168,34 @@ button.primary {
 
 button.secondary {
   background: #000;
+}
+
+@keyframes moveToRight {
+  0% {
+    width: 0;
+    opacity: 0;
+    background: #fff;
+  } 
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    width: 100%;
+    opacity: 1;
+    background: #fff;
+  }
+}
+
+@keyframes appearOfLeft {
+  0% {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate(0);
+    opacity: 1;
+  }
 }
