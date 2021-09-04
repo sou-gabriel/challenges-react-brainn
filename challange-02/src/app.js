@@ -163,14 +163,14 @@ const posts = [
 ]
 
 export const App = () => {
-  const [title] = useState(posts[0].title)
-  const [content] = useState(posts[0].content)
+  const [title, setTitle] = useState(posts[0].title)
+  const [content, setContent] = useState(posts[0].content)
 
   return (
     <div className="grid-container">
       <Header />
       <Menu />
-      <Sidebar posts={posts} />
+      <Sidebar posts={posts} setTitle={setTitle} setContent={setContent} />
       <ContentArea title={title} content={content} />
       <Footer />
     </div>
