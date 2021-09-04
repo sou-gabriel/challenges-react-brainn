@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Header } from './header'
 import { Menu } from './menu'
 import { Sidebar } from './sidebar'
@@ -162,12 +163,15 @@ const posts = [
 ]
 
 export const App = () => {
+  const [title] = useState(posts[0].title)
+  const [content] = useState(posts[0].content)
+
   return (
     <div className="grid-container">
       <Header />
       <Menu />
       <Sidebar posts={posts} />
-      <ContentArea />
+      <ContentArea title={title} content={content} />
       <Footer />
     </div>
   )
