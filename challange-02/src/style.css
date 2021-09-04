@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  background: none;
+  border: none;
+  outline: transparent;
+  cursor: pointer;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.grid-container {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr 1fr 2fr 1fr;
+  grid-template-areas: 
+    "header header"
+    "menu menu"
+    "sidebar content-area"
+    "footer footer"
+  ;
+}
+
+.header {
+  grid-area: header;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header div {
+  text-align: center;
+}
+
+.menu {
+  grid-area: menu;
+}
+
+.sidebar {
+  padding: 20px;
+  grid-area: sidebar;
+}
+
+.sidebar a {
+  display: block;
+  color: #000;
+}
+
+.sidebar a + a {
+  margin-top: 10px;
+}
+
+.content-area {
+  padding: 10px 50px;
+  grid-area: content-area;
+}
+
+.content-area ul {
+  list-style-position: inside;
+}
+
+.content-area h3 {
+  margin-top: 20px;
+}
+
+.content-area p {
+  margin: 5px 0;
+}
+
+.content-area button {
+  margin-top: 10px;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+button.primary, button.secondary {
+  padding: 15px 50px;
+  font-size: 16px;
+  color: #fff;
+  letter-spacing: 1px;
+  border-radius: 5px;
+}
+
+button.primary {
+  background: #f36;
+}
+
+button.secondary {
+  background: #000;
+}
