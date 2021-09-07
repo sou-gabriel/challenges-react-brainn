@@ -1,0 +1,151 @@
+:root {
+  --pink: #f36;
+  --white: #fff;
+  --black: #000;
+  --gray: rgba(221, 221, 221, 0.5);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button,
+input {
+  outline: transparent;
+  border: none;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  overflow-y: hidden;
+}
+
+body {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+}
+
+.container-inner {
+  height: 885px;
+  margin-top: 65px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container .left {
+  width: 30%;
+  min-width: 450px;
+  padding: 0 50px;
+  background: var(--pink);
+}
+
+/* Form */
+.form {
+  width: 100%;
+}
+
+.form .input-block {
+  margin-top: 25px;
+}
+
+.form .label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--white);
+}
+
+.form .input {
+  width: 100%;
+  height: 45px;
+  padding-left: 10px;
+  border: 1px solid var(--white);
+  border-radius: 5px;
+  background: transparent;
+  color: #fff;
+}
+
+.form .input[type="color"] {
+  padding-left: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.form .submit-button {
+  width: 100%;
+  height: 70px;
+  margin-top: 55px;
+  border-radius: 5px;
+
+  font-size: 17px;
+  letter-spacing: 1px;
+
+  cursor: pointer;
+}
+
+/* Table */
+.container .right {
+  width: 70%;
+  margin-top: 65px;
+  display: flex;
+  justify-content: center;
+  overflow: auto;
+}
+
+.table-wrapper {
+  width: 80%;
+  height: fit-content;
+  max-height: 885px;
+}
+
+.table-wrapper .table {
+  width: 100%;
+  height: fit-content;
+  padding-bottom: 5px;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 5px 0px 0 5px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, .15);
+}
+
+.cell {
+  text-align: center;
+}
+
+.table-head .cell {
+  color: var(--white);
+  background: var(--black);
+  padding: 15px 20px;
+  text-align: center;
+}
+
+.table-content .cell {
+  padding: 15px;
+}
+
+.table-content .cell.centralized {
+  text-align: center;
+}
+
+.table-content .row:nth-child(even) {
+  color: var(--dark);
+  background: var(--gray);
+}
+
+.button-delete {
+  padding: 10px 15px;
+  border-radius: 999px;
+  background: var(--pink);
+  color: var(--white);
+  cursor: pointer;
+}
