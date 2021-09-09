@@ -1,4 +1,4 @@
-export const CarForm = ({ cars, setCars }) => {
+export const CarForm = ({ cars, setCars, setFeedbackMessage }) => {
   const registerCar = (event) => {
     event.preventDefault()
 
@@ -20,6 +20,17 @@ export const CarForm = ({ cars, setCars }) => {
           color: event.target.color.value,
         }),
       })
+        .then(response => response.json())
+        .then(({ message }) => {
+          setFeedbackMessage(message)
+
+          setTimeout(() => {
+            setFeedbackMessage('')
+          }, 4000)
+        })
+        .catch(error => {
+          console.log(error)          
+        })
 
       setCars([
         {
@@ -31,7 +42,15 @@ export const CarForm = ({ cars, setCars }) => {
         },
         ...cars        
       ])
+
+      return
     }
+
+    setFeedbackMessage(`Já existe um carro de placa ${event.target.plate.value} cadastrado`)
+
+    setTimeout(() => {
+      setFeedbackMessage('')
+    }, 4000)
   }
 
   return (
