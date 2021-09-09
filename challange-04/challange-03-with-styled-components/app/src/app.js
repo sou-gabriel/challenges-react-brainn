@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react'
 import { CarForm } from './components/CarForm/car-form'
 import { CarTable } from './components/CarTable/car-table'
+import { FeedbackMessage } from './components/FeedbackMessage/feedback-message'
 import { GlobalStyle } from './styles/global'
 import { Container, Left, Right } from './styles/style'
 
 export const App = () => {
   const [cars, setCars] = useState([])
+  const [feedbackMessage, setFeedbackMessage] = useState('')
 
   useEffect(() => {
     fetch('http://localhost:3333/cars')
@@ -16,6 +18,7 @@ export const App = () => {
   return (
     <>
       <GlobalStyle />
+      {feedbackMessage.length > 0 && <FeedbackMessage feedbackMessage={feedbackMessage} />}
       <Container>
         <Left>
           <svg
@@ -30,11 +33,11 @@ export const App = () => {
               fill="#fff"
             ></path>
           </svg>
-          <CarForm cars={cars} setCars={setCars} />
+          <CarForm cars={cars} setCars={setCars} setFeedbackMessage={setFeedbackMessage} />
         </Left>
 
         <Right>
-          <CarTable cars={cars} setCars={setCars} />
+          <CarTable cars={cars} setCars={setCars} setFeedbackMessage={setFeedbackMessage} />
         </Right>
       </Container>
     </>

@@ -1,7 +1,7 @@
 import { Container, Table, ButtonDelete } from './style'
 
-export const CarTable = ({ cars, setCars }) => {
-  const deleteCar = (event) => {
+export const CarTable = ({ cars, setCars, setFeedbackMessage }) => {
+  const deleteCar = event => {
     fetch('http://localhost:3333/cars', {
       method: 'DELETE',
       headers: {
@@ -11,6 +11,17 @@ export const CarTable = ({ cars, setCars }) => {
         plate: event.target.dataset.plate,
       }),
     })
+      .then(response => response.json())
+      .then(({ message }) => {
+        setFeedbackMessage(message)
+
+        setTimeout(() => {
+          setFeedbackMessage('')
+        }, 4000)
+      })
+      .catch(error => {
+        console.log(error)
+      })
 
     const filteredCars = cars.filter(
       (car) => car.plate !== event.target.dataset.plate

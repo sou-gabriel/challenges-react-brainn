@@ -13,7 +13,7 @@ export const InputBlock = styled.div`
 
   label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     font-weight: 400;
     font-size: 16px;
     color: #fff;
@@ -22,21 +22,16 @@ export const InputBlock = styled.div`
   input {
     width: 100%;
     height: 45px;
-    padding-left: 10px;
+    padding: 0 8px;
     border: 1px solid #fff;
     border-radius: 5px;
-    background: transparent;
-    color: #fff;
+    background: rgb(232, 240, 254);
+    color: #232323;
 
     &[type="color"] {
-      padding-left: 0;
+      padding: 0;
       border: none;
       cursor: pointer;
-    }
-
-    &:active,
-    &:focus {
-      background: transparent;
     }
   }
 `
@@ -44,7 +39,7 @@ export const InputBlock = styled.div`
 export const ButtonSubmit = styled.button`
   width: 100%;
   height: 70px;
-  margin-top: 55px;
+  margin-top: 48px;
   border-radius: 5px;
   font-size: 17px;
   letter-spacing: 1px;
