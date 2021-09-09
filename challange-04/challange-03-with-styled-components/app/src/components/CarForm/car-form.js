@@ -45,6 +45,8 @@ export const CarForm = ({ cars, setCars, setFeedbackMessage }) => {
         ...cars        
       ])
 
+      event.target.image.focus()
+      event.target.reset()
       return
     }
 
@@ -53,6 +55,9 @@ export const CarForm = ({ cars, setCars, setFeedbackMessage }) => {
     setTimeout(() => {
       setFeedbackMessage('')
     }, 4000)
+
+    event.target.image.focus()
+    event.target.reset()
   }
 
   return (
