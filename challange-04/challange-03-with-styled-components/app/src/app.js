@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
-import { CarForm } from './components/CarForm/car-form'
-import { CarTable } from './components/CarTable/car-table'
-import { FeedbackMessage } from './components/FeedbackMessage/feedback-message'
+import { CarForm } from './components/car-form/car-form'
+import { CarTable } from './components/car-table/car-table'
+import { FeedbackMessage } from './components/feedback-message/feedback-message'
 import { GlobalStyle } from './styles/global'
 import { Container, Left, Right } from './styles/style'
 
@@ -15,10 +15,18 @@ export const App = () => {
       .then(setCars)
   }, [])
 
+  const showFeedbackMessage = message => {
+    setFeedbackMessage(message)
+
+    setTimeout(() => {
+      setFeedbackMessage('')
+    }, 4000)
+  }
+
   return (
     <>
       <GlobalStyle />
-      {feedbackMessage.length > 0 && <FeedbackMessage feedbackMessage={feedbackMessage} />}
+      {feedbackMessage !== '' && <FeedbackMessage feedbackMessage={feedbackMessage} />}
       <Container>
         <Left>
           <svg
@@ -33,11 +41,19 @@ export const App = () => {
               fill="#fff"
             ></path>
           </svg>
-          <CarForm cars={cars} setCars={setCars} setFeedbackMessage={setFeedbackMessage} />
+          <CarForm 
+            cars={cars} 
+            setCars={setCars} 
+            showFeedbackMessage={showFeedbackMessage}
+          />
         </Left>
 
         <Right>
-          <CarTable cars={cars} setCars={setCars} setFeedbackMessage={setFeedbackMessage} />
+          <CarTable 
+            cars={cars} 
+            setCars={setCars} 
+            showFeedbackMessage={showFeedbackMessage}
+          />
         </Right>
       </Container>
     </>

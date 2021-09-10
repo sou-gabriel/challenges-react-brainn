@@ -1,6 +1,18 @@
-export const CarTable = ({ cars, setCars, setFeedbackMessage }) => {
-  const deleteCar = event => {
-    fetch('http://localhost:3333/cars', {
+export const CarTable = props => {
+  const {
+    cars,
+    setCars,
+    showFeedbackMessage,
+  } = props
+
+  const updateCarTable = carLicensePlateExcluded => {
+    const filteredCars = cars.filter(({ plate }) =>
+      plate !== carLicensePlateExcluded)
+    setCars(filteredCars)
+  }
+
+  const deleteCar = async event => {
+    const { message } = await (await fetch('http://localhost:3333/cars', {
       method: 'DELETE',
       headers: {
         'content-type': 'application/json',
@@ -8,24 +20,10 @@ export const CarTable = ({ cars, setCars, setFeedbackMessage }) => {
       body: JSON.stringify({
         plate: event.target.dataset.plate,
       }),
-    })
-      .then(response => response.json())
-      .then(({ message }) => {
-        setFeedbackMessage(message)
+    })).json()
 
-        setTimeout(() => {
-          setFeedbackMessage('')
-        }, 4000)
-      })
-      .catch(error => {
-        console.log(error)
-      })
-
-    const filteredCars = cars.filter(
-      (car) => car.plate !== event.target.dataset.plate
-    )
-
-    setCars(filteredCars)
+    showFeedbackMessage(message)
+    updateCarTable(event.target.dataset.plate)
   }
 
   return (

@@ -14,9 +14,17 @@ export const App = () => {
       .then(setCars)
   }, [])
 
+  const showFeedbackMessage = message => {
+    setFeedbackMessage(message)
+
+    setTimeout(() => {
+      setFeedbackMessage('')
+    }, 4000)
+  }
+
   return (
     <div className="container">
-      {feedbackMessage.length > 0 && <FeedbackMessage feedbackMessage={feedbackMessage} />}
+      {feedbackMessage !== '' && <FeedbackMessage feedbackMessage={feedbackMessage} />}
       <div className="left">
         <svg
           width="50"
@@ -30,11 +38,19 @@ export const App = () => {
             fill="#fff"
           ></path>
         </svg>
-        <CarForm cars={cars} setCars={setCars} setFeedbackMessage={setFeedbackMessage} />
+        <CarForm 
+          cars={cars} 
+          setCars={setCars} 
+          showFeedbackMessage={showFeedbackMessage} 
+        />
       </div>
 
       <div className="right">
-        <CarTable cars={cars} setCars={setCars} setFeedbackMessage={setFeedbackMessage} />
+        <CarTable 
+          cars={cars} 
+          setCars={setCars} 
+          showFeedbackMessage={showFeedbackMessage} 
+        />
       </div>
     </div>
   )

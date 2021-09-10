@@ -1,3 +1,5 @@
+import { Container, InputBlock, ButtonSubmit, } from './style'
+
 export const CarForm = props => {
   const {
     cars,
@@ -47,43 +49,43 @@ export const CarForm = props => {
   }
 
   return (
-    <form className="form" onSubmit={registerCar}>
-      <div className="input-block">
-        <label className="label" htmlFor="image">
+    <Container onSubmit={registerCar}>
+      <InputBlock>
+        <label htmlFor="image">
           Imagem (URL)
         </label>
-        <input className="input" type="text" id="image" required />
-      </div>
+        <input type="text" id="image" required placeholder="http://..." />
+      </InputBlock>
 
-      <div className="input-block">
-        <label className="label" htmlFor="brandModel">
+      <InputBlock>
+        <label htmlFor="brandModel">
           Marca/Modelo
         </label>
-        <input className="input" type="text" id="brandModel" required />
-      </div>
+        <input type="text" id="brandModel" required placeholder="Ex.: Fiat" />
+      </InputBlock>
 
-      <div className="input-block">
-        <label className="label" htmlFor="year">
+      <InputBlock>
+        <label htmlFor="year">
           Ano
         </label>
-        <input className="input" type="number" id="year" required />
-      </div>
+        <input type="number" id="year" required placeholder="Ex.: 2021" />
+      </InputBlock>
 
-      <div className="input-block">
-        <label className="label" htmlFor="plate">
+      <InputBlock>
+        <label htmlFor="plate">
           Placa
         </label>
-        <input className="input" type="text" id="plate" required />
-      </div>
+        <input type="text" id="plate" required placeholder="Ex.: ABC-1234" />
+      </InputBlock>
 
-      <div className="input-block">
-        <label className="label" htmlFor="color">
+      <InputBlock>
+        <label htmlFor="color">
           Cor
         </label>
-        <input className="input" type="color" id="color" required />
-      </div>
+        <input type="color" id="color" required />
+      </InputBlock>
 
-      <button className="submit-button">Cadastrar novo carro</button>
-    </form>
+      <ButtonSubmit>Cadastrar novo carro</ButtonSubmit>
+    </Container>
   )
 }

@@ -28,6 +28,10 @@ export const InputBlock = styled.div`
     background: rgb(232, 240, 254);
     color: #232323;
 
+    &::placeholder {
+      color: rgba(0, 0, 0, .4);
+    }
+
     &[type="color"] {
       padding: 0;
       border: none;
