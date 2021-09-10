@@ -1,7 +1,6 @@
-import { H1 } from './h1'
 import styled from 'styled-components'
 
-const Container = styled.header`
+export const Container = styled.header`
   grid-area: header;
   display: flex;
   justify-content: center;
@@ -37,11 +36,3 @@ const Container = styled.header`
     }
   }
 `
-
-export const Header = () => {
-  return (
-    <Container>
-      <H1>Blog Ninja 🐱‍👤</H1>
-    </Container>
-  )
-}
