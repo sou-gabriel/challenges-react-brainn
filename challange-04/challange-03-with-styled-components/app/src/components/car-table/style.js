@@ -13,14 +13,14 @@ export const Table = styled.table`
   border-collapse: collapse;
   overflow: hidden;
   border-radius: 5px 0px 0 5px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, .15);
-  
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
   tr {
     &:nth-child(even) {
       color: #000;
       background: #f2f2f2;
     }
-    
+
     th {
       color: #fff;
       background: #000;

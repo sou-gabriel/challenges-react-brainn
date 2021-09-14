@@ -1,30 +1,29 @@
 import { Container, Table, ButtonDelete } from './style'
 
-export const CarTable = props => {
-  const {
-    cars,
-    setCars,
-    showFeedbackMessage,
-  } = props
+export const CarTable = (props) => {
+  const { cars, setCars, setFeedbackMessage } = props
 
-  const updateCarTable = carLicensePlateExcluded => {
-    const filteredCars = cars.filter(({ plate }) =>
-      plate !== carLicensePlateExcluded)
+  const updateCarTable = (carLicensePlateExcluded) => {
+    const filteredCars = cars.filter(
+      ({ plate }) => plate !== carLicensePlateExcluded
+    )
     setCars(filteredCars)
   }
 
-  const deleteCar = async event => {
-    const { message } = await (await fetch('http://localhost:3333/cars', {
-      method: 'DELETE',
-      headers: {
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify({
-        plate: event.target.dataset.plate,
-      }),
-    })).json()
+  const deleteCar = async (event) => {
+    const { message } = await (
+      await fetch('http://localhost:3333/cars', {
+        method: 'DELETE',
+        headers: {
+          'content-type': 'application/json',
+        },
+        body: JSON.stringify({
+          plate: event.target.dataset.plate,
+        }),
+      })
+    ).json()
 
-    showFeedbackMessage(message)
+    setFeedbackMessage(message)
     updateCarTable(event.target.dataset.plate)
   }
 
@@ -44,7 +43,7 @@ export const CarTable = props => {
 
         <tbody>
           {cars.length ? (
-            cars.map(car => (
+            cars.map((car) => (
               <tr key={car.plate}>
                 <td>
                   <img alt={car.brandModel} width="200" src={car.image} />

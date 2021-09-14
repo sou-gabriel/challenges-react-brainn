@@ -15,18 +15,15 @@ export const App = () => {
       .then(setCars)
   }, [])
 
-  const showFeedbackMessage = message => {
-    setFeedbackMessage(message)
-
-    setTimeout(() => {
-      setFeedbackMessage('')
-    }, 4000)
-  }
-
   return (
     <>
       <GlobalStyle />
-      {feedbackMessage !== '' && <FeedbackMessage feedbackMessage={feedbackMessage} />}
+      {feedbackMessage !== '' && (
+        <FeedbackMessage
+          feedbackMessage={feedbackMessage}
+          setFeedbackMessage={setFeedbackMessage}
+        />
+      )}
       <Container>
         <Left>
           <svg
@@ -41,18 +38,18 @@ export const App = () => {
               fill="#fff"
             ></path>
           </svg>
-          <CarForm 
-            cars={cars} 
-            setCars={setCars} 
-            showFeedbackMessage={showFeedbackMessage}
+          <CarForm
+            cars={cars}
+            setCars={setCars}
+            setFeedbackMessage={setFeedbackMessage}
           />
         </Left>
 
         <Right>
-          <CarTable 
-            cars={cars} 
-            setCars={setCars} 
-            showFeedbackMessage={showFeedbackMessage}
+          <CarTable
+            cars={cars}
+            setCars={setCars}
+            setFeedbackMessage={setFeedbackMessage}
           />
         </Right>
       </Container>

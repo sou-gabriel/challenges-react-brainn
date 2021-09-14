@@ -1,16 +1,12 @@
-export const CarForm = props => {
-  const {
-    cars,
-    setCars,
-    showFeedbackMessage
-  } = props
+export const CarForm = (props) => {
+  const { cars, setCars, setFeedbackMessage } = props
 
-  const resetFieldsForm = form => {
+  const resetFieldsForm = (form) => {
     form.reset()
     form.image.focus()
   }
 
-  const registerCar = async event => {
+  const registerCar = async (event) => {
     event.preventDefault()
 
     try {
@@ -22,26 +18,25 @@ export const CarForm = props => {
         color: event.target.color.value,
       }
 
-      const { error, message } = await (await fetch(
-        'http://localhost:3333/cars',
-        {
+      const { error, message } = await (
+        await fetch('http://localhost:3333/cars', {
           method: 'POST',
           headers: {
             'content-type': 'application/json',
           },
           body: JSON.stringify(newCar),
-        }
-      )).json()
+        })
+      ).json()
 
       if (error) {
         throw new Error(message)
       }
 
-      showFeedbackMessage(message)
+      setFeedbackMessage(message)
       setCars([...cars, newCar])
       resetFieldsForm(event.target)
     } catch ({ message }) {
-      showFeedbackMessage(message)
+      setFeedbackMessage(message)
       resetFieldsForm(event.target)
     }
   }

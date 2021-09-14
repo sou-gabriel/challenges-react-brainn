@@ -29,10 +29,10 @@ export const InputBlock = styled.div`
     color: #232323;
 
     &::placeholder {
-      color: rgba(0, 0, 0, .4);
+      color: rgba(0, 0, 0, 0.4);
     }
 
-    &[type="color"] {
+    &[type='color'] {
       padding: 0;
       border: none;
       cursor: pointer;
